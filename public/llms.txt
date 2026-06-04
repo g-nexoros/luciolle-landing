@@ -1,0 +1,32 @@
+# Luciolle
+
+> Luciolle est le cahier journal numérique pour enseignants de maternelle et de primaire (PS, MS, GS, CP, CE1, CE2, CM1, CM2). L'application permet de planifier, rédiger et visualiser son cahier journal en quelques minutes.
+
+## Produit
+
+- Application web de planification pédagogique pour enseignants français
+- Tarif : 4,99€/mois ou 49,99€/an
+- Essai gratuit : 7 jours sans carte bancaire
+- Public cible : enseignants de maternelle (PS MS GS) et primaire (CP CE1 CE2 CM1 CM2)
+- Statut : bientôt disponible (liste d'attente ouverte)
+
+## Fonctionnalités
+
+- Vue semaine et mois du cahier journal
+- Semaine type et duplication de journées
+- Statistiques par matière
+- Gestion des périodes scolaires et vacances
+- Export PDF
+
+## Contact
+
+- Site : https://luciolle.fr
+- Email : contact@luciolle.fr
+
+## Pages
+
+- https://luciolle.fr/ : Landing page principale
+- https://luciolle.fr/blog/ : Blog ressources enseignants
+- https://luciolle.fr/blog/cahier-journal-numerique-enseignant : Guide cahier journal numérique
+- https://luciolle.fr/blog/cahier-journal-maternelle : Cahier journal maternelle
+- https://luciolle.fr/blog/modele-cahier-journal-primaire : Modèles cahier journal primaire
