@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luciolle.fr/sitemap-index.xml

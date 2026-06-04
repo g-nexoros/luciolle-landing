@@ -58,6 +58,61 @@ export const FORMSPREE_ID = 'VOTRE_ID_FORMSPREE';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Luciolle",
+        "description": "Cahier journal numérique pour enseignants de maternelle et primaire. Planifiez, rédigez et visualisez votre cahier journal en quelques minutes.",
+        "url": "https://luciolle.fr",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "4.99",
+          "priceCurrency": "EUR",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "4.99",
+            "priceCurrency": "EUR",
+            "unitText": "MONTH"
+          }
+        },
+        "audience": {
+          "@type": "EducationalAudience",
+          "educationalRole": "teacher"
+        },
+        "inLanguage": "fr"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Luciolle",
+        "url": "https://luciolle.fr",
+        "logo": "https://luciolle.fr/favicon.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact@luciolle.fr",
+          "contactType": "customer support"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Luciolle",
+        "url": "https://luciolle.fr",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://luciolle.fr/blog?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ])} />
+
     <!-- Plausible Analytics -->
     <script async src="https://plausible.io/js/pa-XP-oQIXWU4ssEpUboAI4x.js"></script>
     <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};plausible.init=plausible.init||function(){};</script>
