@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Page introuvable – Luciolle" description="Cette page n'existe pas.">
+  <div class="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-white dark:bg-gray-950">
+
+    <!-- Illustration minimaliste -->
+    <div class="relative mb-10 select-none">
+      <span class="text-[120px] font-extrabold leading-none tracking-tighter text-gray-100 dark:text-gray-800">404</span>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg" style="background-color: #4F86C6;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+            <line x1="16" x2="16" y1="2" y2="6"/>
+            <line x1="8" x2="8" y1="2" y2="6"/>
+            <line x1="3" x2="21" y1="10" y2="10"/>
+            <path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/>
+            <path d="M8 18h.01"/><path d="M12 18h.01"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-gray-50 mb-3 tracking-tight">
+      Cette page n'existe pas
+    </h1>
+    <p class="text-gray-500 dark:text-gray-400 max-w-sm mb-8 leading-relaxed">
+      Elle a peut-être été déplacée ou supprimée. Retournez à l'accueil pour reprendre votre planification.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center gap-3">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-sm transition-opacity hover:opacity-90 shadow-md"
+        style="background-color: #4F86C6;"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Retour à l'accueil
+      </a>
+      <a
+        href="mailto:contact@luciolle.fr"
+        class="text-sm text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+      >
+        Signaler un problème →
+      </a>
+    </div>
+
+    <!-- Branding discret -->
+    <div class="mt-16 text-sm font-bold" style="color: #4F86C6;">Luciolle</div>
+  </div>
+</Layout>
