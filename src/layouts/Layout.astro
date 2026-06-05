@@ -15,12 +15,6 @@ const {
   ogImage = 'https://luciolle.fr/og.png',
 } = Astro.props;
 
-// Remplacez par votre vrai ID Plausible une fois le compte créé sur plausible.io
-const PLAUSIBLE_DOMAIN = 'luciolle.fr';
-
-// Remplacez par votre vrai ID Formspree une fois le compte créé sur formspree.io
-// ex: https://formspree.io/f/xyzabcde
-export const FORMSPREE_ID = 'VOTRE_ID_FORMSPREE';
 ---
 
 <!doctype html>
@@ -113,9 +107,12 @@ export const FORMSPREE_ID = 'VOTRE_ID_FORMSPREE';
       }
     ])} />
 
-    <!-- Plausible Analytics -->
-    <script async src="https://plausible.io/js/pa-XP-oQIXWU4ssEpUboAI4x.js"></script>
-    <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};plausible.init=plausible.init||function(){};</script>
+    <!-- Plausible Analytics via NPM -->
+    <script>
+      import Plausible from 'plausible-tracker';
+      const { trackPageview, enableAutoPageviews } = Plausible({ domain: 'luciolle.fr' });
+      enableAutoPageviews();
+    </script>
   </head>
   <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-sans antialiased">
     <slot />
