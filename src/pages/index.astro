@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 const days = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven'];
-const blockColors = ['#4F86C6', '#60a5fa', '#f59e0b', '#10b981', '#8b5cf6'];
+const blockColors = ['#1B82B6', '#60a5fa', '#f59e0b', '#10b981', '#8b5cf6'];
 
 const mockupSlots = [
   [{ label: 'Français', time: '8h30' }, { label: 'Maths', time: '10h00' }, { label: 'EPS', time: '14h00' }],
@@ -50,8 +50,10 @@ const painPoints = [
   <!-- HEADER -->
   <header class="border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold text-[#4F86C6]">Luciolle</a>
-      <a href="#waitlist" class="px-4 py-2 rounded-lg text-white font-medium text-sm bg-[#4F86C6] hover:bg-[#3a6fad] transition-colors">
+      <a href="/">
+        <img src="/logo-full.svg" alt="Luciolle" class="h-10 w-auto" />
+      </a>
+      <a href="#waitlist" class="px-4 py-2 rounded-lg text-white font-medium text-sm bg-[#1B82B6] hover:bg-[#1566a0] transition-colors">
         Être prévenu(e)
       </a>
     </div>
@@ -69,7 +71,7 @@ const painPoints = [
       </div>
 
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-gray-900 dark:text-gray-50">
-        Le cahier journal numérique <span class="text-[#4F86C6]">des enseignants</span><br />qui gagnent du temps
+        Le cahier journal numérique <span class="text-[#1B82B6]">des enseignants</span><br />qui gagnent du temps
       </h1>
 
       <p class="text-lg sm:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -82,7 +84,7 @@ const painPoints = [
         <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
           Laissez votre email — on vous prévient en avant-première à l'ouverture.<br />
           <!-- Prix en doré -->
-          <span class="font-semibold" style="color: #D68E11;">À partir de 2,99€/mois · 7 jours d'essai gratuit.</span>
+          <span class="font-semibold" style="color: #E17E29;">À partir de 2,99€/mois · 7 jours d'essai gratuit.</span>
         </p>
         <form id="waitlist-form-hero" class="flex flex-col sm:flex-row gap-3" action="https://formspree.io/f/mzdqzzle" method="POST">
           <input
@@ -90,11 +92,11 @@ const painPoints = [
             name="email"
             placeholder="votre@email.fr"
             required
-            class="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4F86C6]/40 text-sm"
+            class="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1B82B6]/40 text-sm"
           />
           <button
             type="submit"
-            class="px-6 py-3 rounded-xl text-white font-semibold text-sm bg-[#4F86C6] hover:bg-[#3a6fad] transition-colors whitespace-nowrap"
+            class="px-6 py-3 rounded-xl text-white font-semibold text-sm bg-[#1B82B6] hover:bg-[#1566a0] transition-colors whitespace-nowrap"
           >
             Me prévenir →
           </button>
@@ -122,7 +124,7 @@ const painPoints = [
             <div class="flex items-center justify-between mb-4">
               <div class="h-5 w-36 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
               <div class="flex gap-2">
-                <div class="h-8 w-20 bg-[#4F86C6]/20 rounded-lg"></div>
+                <div class="h-8 w-20 bg-[#1B82B6]/20 rounded-lg"></div>
                 <div class="h-8 w-8 bg-gray-100 dark:bg-gray-800 rounded-lg"></div>
               </div>
             </div>
@@ -172,7 +174,7 @@ const painPoints = [
             </div>
             <div class="flex items-start gap-3">
               <!-- Check en doré -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="color: #D68E11;" class="mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="color: #E17E29;" class="mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
               <span class="text-sm font-medium text-gray-800 dark:text-gray-200">{point.after}</span>
             </div>
           </div>
@@ -193,19 +195,19 @@ const painPoints = [
         </div>
         <div class="grid sm:grid-cols-2 gap-6">
           {features.map((feature, i) => (
-            <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 hover:border-[#4F86C6]/40 transition-colors stagger-child" style={`--stagger: ${i}`}>
+            <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 hover:border-[#1B82B6]/40 transition-colors stagger-child" style={`--stagger: ${i}`}>
               <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 icon-bg-primary">
                 {feature.icon === 'calendar' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-[#4F86C6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-[#1B82B6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
                 )}
                 {feature.icon === 'copy' && (
-                  <svg width="20" height="20" class="text-[#4F86C6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                  <svg width="20" height="20" class="text-[#1B82B6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                 )}
                 {feature.icon === 'barchart' && (
-                  <svg width="20" height="20" class="text-[#4F86C6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+                  <svg width="20" height="20" class="text-[#1B82B6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
                 )}
                 {feature.icon === 'calendarx' && (
-                  <svg width="20" height="20" class="text-[#4F86C6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><line x1="10" x2="14" y1="15" y2="19"/><line x1="14" x2="10" y1="15" y2="19"/></svg>
+                  <svg width="20" height="20" class="text-[#1B82B6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><line x1="10" x2="14" y1="15" y2="19"/><line x1="14" x2="10" y1="15" y2="19"/></svg>
                 )}
               </div>
               <h3 class="font-bold text-gray-900 dark:text-white mb-2">{feature.title}</h3>
@@ -228,31 +230,31 @@ const painPoints = [
       </div>
       <div class="grid sm:grid-cols-3 gap-5">
         <!-- Badges de catégorie en doré -->
-        <a href="/blog/cahier-journal-numerique-enseignant" class="block bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:border-[#4F86C6]/40 transition-colors group">
+        <a href="/blog/cahier-journal-numerique-enseignant" class="block bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:border-[#1B82B6]/40 transition-colors group">
           <span class="inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-3 badge-secondary">Guide</span>
-          <h3 class="font-bold text-gray-900 dark:text-white mb-2 text-sm group-hover:text-[#4F86C6] transition-colors">Cahier journal numérique pour enseignant : le guide complet</h3>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-2 text-sm group-hover:text-[#1B82B6] transition-colors">Cahier journal numérique pour enseignant : le guide complet</h3>
           <p class="text-xs text-gray-500 dark:text-gray-400">Tout ce qu'il faut savoir pour passer au cahier journal numérique et gagner du temps chaque semaine.</p>
         </a>
-        <a href="/blog/cahier-journal-maternelle" class="block bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:border-[#4F86C6]/40 transition-colors group">
+        <a href="/blog/cahier-journal-maternelle" class="block bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:border-[#1B82B6]/40 transition-colors group">
           <span class="inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-3 badge-secondary">Maternelle</span>
-          <h3 class="font-bold text-gray-900 dark:text-white mb-2 text-sm group-hover:text-[#4F86C6] transition-colors">Cahier journal maternelle : structurer son planning PS MS GS</h3>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-2 text-sm group-hover:text-[#1B82B6] transition-colors">Cahier journal maternelle : structurer son planning PS MS GS</h3>
           <p class="text-xs text-gray-500 dark:text-gray-400">Comment organiser son cahier journal en maternelle pour toutes les sections, de la PS à la GS.</p>
         </a>
-        <a href="/blog/modele-cahier-journal-primaire" class="block bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:border-[#4F86C6]/40 transition-colors group">
+        <a href="/blog/modele-cahier-journal-primaire" class="block bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:border-[#1B82B6]/40 transition-colors group">
           <span class="inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-3 badge-secondary">Primaire</span>
-          <h3 class="font-bold text-gray-900 dark:text-white mb-2 text-sm group-hover:text-[#4F86C6] transition-colors">Modèle de cahier journal pour le primaire : CP, CE1, CE2, CM1, CM2</h3>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-2 text-sm group-hover:text-[#1B82B6] transition-colors">Modèle de cahier journal pour le primaire : CP, CE1, CE2, CM1, CM2</h3>
           <p class="text-xs text-gray-500 dark:text-gray-400">Un modèle de cahier journal adapté à chaque niveau du primaire pour ne plus repartir de zéro.</p>
         </a>
       </div>
       <div class="text-center mt-8">
-        <a href="/blog" class="text-sm text-[#4F86C6] hover:underline font-medium">Voir tous les articles →</a>
+        <a href="/blog" class="text-sm text-[#1B82B6] hover:underline font-medium">Voir tous les articles →</a>
       </div>
     </section>
 
     <!-- WAITLIST FINALE -->
     <section id="waitlist" class="px-6 py-24 max-w-2xl mx-auto text-center reveal">
       <!-- Icône en doré -->
-      <div class="flex justify-center mb-6" style="color: #D68E11;">
+      <div class="flex justify-center mb-6" style="color: #E17E29;">
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" x2="6" y1="1" y2="4"/><line x1="10" x2="10" y1="1" y2="4"/><line x1="14" x2="14" y1="1" y2="4"/></svg>
       </div>
       <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3 text-gray-900 dark:text-gray-50">
@@ -268,11 +270,11 @@ const painPoints = [
           name="email"
           placeholder="votre@email.fr"
           required
-          class="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4F86C6]/40 text-sm"
+          class="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1B82B6]/40 text-sm"
         />
         <button
           type="submit"
-          class="px-6 py-3 rounded-xl text-white font-semibold text-sm bg-[#4F86C6] hover:bg-[#3a6fad] transition-colors whitespace-nowrap"
+          class="px-6 py-3 rounded-xl text-white font-semibold text-sm bg-[#1B82B6] hover:bg-[#1566a0] transition-colors whitespace-nowrap"
         >
           Me prévenir →
         </button>
@@ -281,12 +283,12 @@ const painPoints = [
       <div class="flex flex-col items-center gap-2 mt-6">
         <!-- Barre de progression en doré -->
         <div class="w-48 h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-          <div class="h-full rounded-full" style="width: 34%; background-color: #D68E11;"></div>
+          <div class="h-full rounded-full" style="width: 34%; background-color: #E17E29;"></div>
         </div>
         <p class="text-xs text-gray-400 dark:text-gray-500">
           <span class="font-semibold text-gray-600 dark:text-gray-300">34</span> inscrits ·
           <!-- Prix en doré -->
-          <span class="font-semibold" style="color: #D68E11;">2,99€/mois</span> · 7 jours d'essai gratuit
+          <span class="font-semibold" style="color: #E17E29;">2,99€/mois</span> · 7 jours d'essai gratuit
         </p>
       </div>
 
@@ -300,10 +302,10 @@ const painPoints = [
   <!-- FOOTER -->
   <footer class="border-t border-gray-100 dark:border-gray-800 px-6 py-8">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400 dark:text-gray-600">
-      <span class="font-bold text-[#4F86C6]">Luciolle</span>
+      <span class="font-bold text-[#1B82B6]">Luciolle</span>
       <div class="flex gap-6">
-        <a href="mailto:contact@luciolle.fr" class="hover:text-[#4F86C6] transition-colors">Contact</a>
-        <a href="/blog" class="hover:text-[#4F86C6] transition-colors">Blog</a>
+        <a href="mailto:contact@luciolle.fr" class="hover:text-[#1B82B6] transition-colors">Contact</a>
+        <a href="/blog" class="hover:text-[#1B82B6] transition-colors">Blog</a>
       </div>
       <span>© 2026 Luciolle</span>
     </div>
@@ -313,17 +315,17 @@ const painPoints = [
 
 <style>
   /* Badge bleu principal */
-  .badge-primary { background-color: #EBF3FB; color: #4F86C6; }
+  .badge-primary { background-color: #E8F4FB; color: #1B82B6; }
 
   /* Badge doré secondaire */
-  .badge-secondary { background-color: #FDF3D9; color: #D68E11; }
+  .badge-secondary { background-color: #FEF0E4; color: #E17E29; }
 
   @media (prefers-color-scheme: dark) {
-    .badge-primary { background-color: #1a3352; color: #7EB3E8; }
-    .badge-secondary { background-color: #3D2800; color: #E8A825; }
-    .icon-bg-primary { background-color: #1a3352; }
+    .badge-primary { background-color: #0d2d3f; color: #5BB3D8; }
+    .badge-secondary { background-color: #3D1800; color: #E88525; }
+    .icon-bg-primary { background-color: #0d2d3f; }
   }
-  .icon-bg-primary { background-color: #EBF3FB; }
+  .icon-bg-primary { background-color: #E8F4FB; }
 
   .reveal {
     opacity: 0;
