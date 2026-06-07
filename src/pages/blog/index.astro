@@ -1,23 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-// Charge automatiquement tous les articles du dossier blog
-const allPages = await Astro.glob('./*.astro');
-
-const articles = allPages
-  .map((page) => {
-    const slug = page.file.split('/').pop().replace('.astro', '');
-    return { slug };
-  })
-  .filter((a) => a.slug !== 'index')
-  .sort((a, b) => a.slug.localeCompare(b.slug));
+const allFiles = import.meta.glob('./*.astro');
+const articles = Object.keys(allFiles)
+  .map((path) => path.replace('./', '').replace('.astro', ''))
+  .filter((slug) => slug !== 'index')
+  .sort((a, b) => a.localeCompare(b));
 ---
 
 <Layout
   title="Blog Luciolle – Ressources cahier journal numérique enseignant"
   description="Guides et conseils pratiques sur le cahier journal numérique pour enseignants de maternelle et primaire. Modèles, méthodes et astuces pour gagner du temps."
 >
-  <!-- HEADER -->
   <header class="border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
       <a href="/" class="text-xl font-bold text-[#4F86C6]">Luciolle</a>
@@ -39,22 +33,14 @@ const articles = allPages
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {articles.map((article) => {
-        const title = article.slug
+      {articles.map((slug) => {
+        const title = slug
           .split('-')
           .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-          .join(' ')
-          .replace(/Cp$/, 'CP')
-          .replace(/Ce1$/, 'CE1')
-          .replace(/Ce2$/, 'CE2')
-          .replace(/Cm1$/, 'CM1')
-          .replace(/Cm2$/, 'CM2')
-          .replace(/Ps$/, 'PS')
-          .replace(/Ms$/, 'MS')
-          .replace(/Gs$/, 'GS');
+          .join(' ');
         return (
           <a
-            href={`/blog/${article.slug}`}
+            href={`/blog/${slug}`}
             class="block bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:border-[#4F86C6]/40 hover:shadow-md transition-all group"
           >
             <h2 class="font-semibold text-gray-900 dark:text-gray-100 text-sm group-hover:text-[#4F86C6] transition-colors leading-snug">
@@ -67,7 +53,6 @@ const articles = allPages
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="border-t border-gray-100 dark:border-gray-800 px-6 py-8 mt-16">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
       <a href="/" class="font-bold text-[#4F86C6]">Luciolle</a>
