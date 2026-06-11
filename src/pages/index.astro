@@ -60,7 +60,14 @@ const painPoints = [
   <main>
 
     <!-- HERO -->
-    <section class="max-w-3xl mx-auto px-6 pt-20 pb-16 text-center">
+    <section class="relative overflow-hidden px-6 pt-20 pb-16 text-center">
+      <!-- Blobs décoratifs -->
+      <div class="absolute -top-20 -right-20 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: #157f86;"></div>
+      <div class="absolute -bottom-10 -left-20 w-80 h-80 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: #E17E29;"></div>
+      <div class="absolute top-40 left-10 w-4 h-4 rounded-full opacity-30 pointer-events-none" style="background: #E17E29;"></div>
+      <div class="absolute top-20 right-1/4 w-3 h-3 rounded-full opacity-20 pointer-events-none" style="background: #157f86;"></div>
+      <div class="absolute bottom-20 right-10 w-5 h-5 rounded-full opacity-25 pointer-events-none" style="background: #E17E29;"></div>
+      <div class="max-w-3xl mx-auto relative">
 
       <!-- Badge doré "Bientôt disponible" -->
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6 badge-secondary">
@@ -103,6 +110,7 @@ const painPoints = [
           Aucun spam · Désabonnement en un clic
         </p>
       </div>
+    </div><!-- fin max-w-3xl relative -->
     </section>
 
     <!-- MOCKUP -->
@@ -180,36 +188,39 @@ const painPoints = [
       </div>
     </section>
 
-    <!-- FEATURES -->
-    <section class="bg-gray-50 dark:bg-gray-900/50 border-y border-gray-100 dark:border-gray-800 px-6 py-20 reveal">
-      <div class="max-w-5xl mx-auto">
+    <!-- FEATURES — fond teal foncé -->
+    <section class="relative overflow-hidden px-6 py-20 reveal" style="background: #0d5e63;">
+      <!-- Déco blob -->
+      <div class="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: #E17E29;"></div>
+      <div class="absolute bottom-0 left-0 w-48 h-48 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: #157f86;"></div>
+      <div class="max-w-5xl mx-auto relative">
         <div class="text-center mb-14">
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-gray-900 dark:text-gray-50">
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
             Tout ce dont votre cahier journal a besoin
           </h2>
-          <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
+          <p class="max-w-xl mx-auto" style="color: rgba(255,255,255,0.7);">
             Des outils pensés pour les enseignants de maternelle et de primaire, pas pour les développeurs.
           </p>
         </div>
         <div class="grid sm:grid-cols-2 gap-6">
           {features.map((feature, i) => (
-            <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 hover:border-[#157f86]/40 transition-colors stagger-child" style={`--stagger: ${i}`}>
-              <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 icon-bg-primary">
+            <div class="rounded-2xl p-6 stagger-child" style={`--stagger: ${i}; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);`}>
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background: #E17E29;">
                 {feature.icon === 'calendar' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-[#157f86]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
                 )}
                 {feature.icon === 'copy' && (
-                  <svg width="20" height="20" class="text-[#157f86]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                  <svg width="20" height="20" class="text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                 )}
                 {feature.icon === 'barchart' && (
-                  <svg width="20" height="20" class="text-[#157f86]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+                  <svg width="20" height="20" class="text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
                 )}
                 {feature.icon === 'calendarx' && (
-                  <svg width="20" height="20" class="text-[#157f86]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><line x1="10" x2="14" y1="15" y2="19"/><line x1="14" x2="10" y1="15" y2="19"/></svg>
+                  <svg width="20" height="20" class="text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><line x1="10" x2="14" y1="15" y2="19"/><line x1="14" x2="10" y1="15" y2="19"/></svg>
                 )}
               </div>
-              <h3 class="font-bold text-gray-900 dark:text-white mb-2">{feature.title}</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{feature.desc}</p>
+              <h3 class="font-bold text-white mb-2">{feature.title}</h3>
+              <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.65);">{feature.desc}</p>
             </div>
           ))}
         </div>
@@ -250,15 +261,18 @@ const painPoints = [
     </section>
 
     <!-- WAITLIST FINALE -->
-    <section id="waitlist" class="px-6 py-24 max-w-2xl mx-auto text-center reveal">
-      <!-- Icône en doré -->
-      <div class="flex justify-center mb-6" style="color: #E17E29;">
+    <section id="waitlist" class="relative overflow-hidden px-6 py-24 text-center reveal" style="background: linear-gradient(135deg, #157f86 0%, #0d5e63 100%);">
+      <div class="absolute -top-16 -right-16 w-72 h-72 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: #E17E29;"></div>
+      <div class="absolute -bottom-16 -left-16 w-72 h-72 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: white;"></div>
+      <div class="max-w-2xl mx-auto relative">
+      <!-- Icône en blanc -->
+      <div class="flex justify-center mb-6 text-white opacity-80">
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" x2="6" y1="1" y2="4"/><line x1="10" x2="10" y1="1" y2="4"/><line x1="14" x2="14" y1="1" y2="4"/></svg>
       </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3 text-gray-900 dark:text-gray-50">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3 text-white">
         Récupérez vos soirées
       </h2>
-      <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-lg mx-auto">
+      <p class="mb-8 max-w-lg mx-auto" style="color: rgba(255,255,255,0.8);">
         Luciolle arrive bientôt. Laissez votre email pour être prévenu(e) en avant-première dès l'ouverture.
       </p>
 
@@ -268,31 +282,32 @@ const painPoints = [
           name="email"
           placeholder="votre@email.fr"
           required
-          class="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm"
+          class="flex-1 px-4 py-3 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/40 text-sm"
+          style="background: rgba(255,255,255,0.95); border: 1px solid rgba(255,255,255,0.3);"
         />
         <button
           type="submit"
-          class="px-6 py-3 rounded-xl text-white font-semibold text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors whitespace-nowrap"
+          class="px-6 py-3 rounded-xl font-semibold text-sm transition-colors whitespace-nowrap"
+          style="background: #E17E29; color: white;"
         >
           Me prévenir →
         </button>
       </form>
 
       <div class="flex flex-col items-center gap-2 mt-6">
-        <!-- Barre de progression en doré -->
-        <div class="w-48 h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-          <div class="h-full rounded-full" style="width: 34%; background-color: #E17E29;"></div>
+        <div class="w-48 h-2 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.2);">
+          <div class="h-full rounded-full" style="width: 34%; background: #E17E29;"></div>
         </div>
-        <p class="text-xs text-gray-400 dark:text-gray-500">
-          <span class="font-semibold text-gray-600 dark:text-gray-300">34</span> inscrits ·
-          <!-- Prix en doré -->
-          <span class="font-semibold" style="color: #E17E29;">2,99€/mois</span> · 1 mois gratuit
+        <p class="text-xs" style="color: rgba(255,255,255,0.7);">
+          <span class="font-semibold text-white">34</span> inscrits ·
+          <span class="font-semibold" style="color: #fbbf24;">2,99€/mois</span> · 1 mois gratuit
         </p>
       </div>
 
-      <p class="text-xs text-gray-400 dark:text-gray-500 mt-4">
+      <p class="text-xs mt-4" style="color: rgba(255,255,255,0.5);">
         Aucun spam · Désabonnement en un clic
       </p>
+      </div><!-- fin max-w-2xl -->
     </section>
 
   </main>
