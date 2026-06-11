@@ -202,7 +202,13 @@ const painPoints = [
     </section>
 
     <!-- FEATURES — fond teal foncé -->
-    <section class="relative overflow-hidden px-6 py-20 reveal" style="background: #0d5e63;">
+    <section class="relative overflow-hidden px-6 pb-20 pt-28 reveal" style="background: #0d5e63;">
+      <!-- Vague de transition depuis le blanc -->
+      <div class="absolute top-0 left-0 right-0 pointer-events-none" style="margin-top: -2px;">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="width:100%;height:60px;display:block;fill:#0d5e63;">
+          <path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z"/>
+        </svg>
+      </div>
       <!-- Déco blob -->
       <div class="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: #E8604A;"></div>
       <div class="absolute bottom-0 left-0 w-48 h-48 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: #157f86;"></div>
@@ -237,6 +243,12 @@ const painPoints = [
             </div>
           ))}
         </div>
+      <!-- Vague de sortie vers le blanc -->
+      <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="width:100%;height:60px;display:block;fill:white;">
+          <path d="M0,20 C360,60 1080,0 1440,40 L1440,60 L0,60 Z"/>
+        </svg>
+      </div>
       </div>
     </section>
 
