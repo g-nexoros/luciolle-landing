@@ -7,6 +7,11 @@ const articles = Object.keys(allFiles)
   .map((path) => path.replace('./', '').replace('.astro', ''))
   .filter((slug) => slug !== 'index')
   .sort((a, b) => a.localeCompare(b));
+
+const articlesData = articles.map((slug) => ({
+  slug,
+  title: blogTitles[slug] ?? slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+}));
 ---
 
 <Layout
@@ -23,32 +28,44 @@ const articles = Object.keys(allFiles)
   </header>
 
   <main class="max-w-5xl mx-auto px-6 py-16">
-    <div class="mb-12">
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 mb-4">
+    <div class="mb-10">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 mb-3">
         Ressources pour les enseignants
       </h1>
       <p class="text-gray-500 dark:text-gray-400 text-lg max-w-2xl">
-        Guides pratiques sur le cahier journal numérique pour maternelle et primaire : méthodes, modèles et conseils pour gagner du temps chaque semaine.
+        Guides pratiques sur le cahier journal numérique pour maternelle et primaire.
       </p>
-      <p class="text-sm text-gray-400 mt-2">{articles.length} articles disponibles</p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {articles.map((slug) => {
-        const title = blogTitles[slug] ?? slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-        return (
-          <a
-            href={`/blog/${slug}`}
-            class="block bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:border-[#157f86]/40 hover:shadow-md transition-all group"
-          >
-            <h2 class="font-semibold text-gray-900 dark:text-gray-100 text-sm group-hover:text-[#157f86] transition-colors leading-snug">
-              {title}
-            </h2>
-            <span class="text-xs text-[#157f86] mt-2 inline-block">Lire l'article →</span>
-          </a>
-        );
-      })}
+    <!-- Barre de recherche -->
+    <div class="relative mb-8">
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input
+        id="search"
+        type="text"
+        placeholder="Rechercher un article..."
+        class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm"
+      />
     </div>
+
+    <p id="count" class="text-sm text-gray-400 mb-6">{articles.length} articles disponibles</p>
+
+    <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {articlesData.map(({ slug, title }) => (
+        <a
+          href={`/blog/${slug}`}
+          data-title={title.toLowerCase()}
+          class="article-card block bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-5 hover:border-[#157f86]/40 hover:shadow-md transition-all group"
+        >
+          <h2 class="font-semibold text-gray-900 dark:text-gray-100 text-sm group-hover:text-[#157f86] transition-colors leading-snug">
+            {title}
+          </h2>
+          <span class="text-xs text-[#157f86] mt-2 inline-block">Lire l'article →</span>
+        </a>
+      ))}
+    </div>
+
+    <p id="empty" class="hidden text-center text-gray-400 py-16">Aucun article trouvé pour cette recherche.</p>
   </main>
 
   <footer class="border-t border-gray-100 dark:border-gray-800 px-6 py-8 mt-16">
@@ -61,4 +78,24 @@ const articles = Object.keys(allFiles)
       <span>© 2026 Luciolle</span>
     </div>
   </footer>
+
+  <script>
+    const input = document.getElementById('search') as HTMLInputElement;
+    const cards = document.querySelectorAll<HTMLElement>('.article-card');
+    const count = document.getElementById('count')!;
+    const empty = document.getElementById('empty')!;
+    const total = cards.length;
+
+    input.addEventListener('input', () => {
+      const q = input.value.toLowerCase().trim();
+      let visible = 0;
+      cards.forEach((card) => {
+        const match = !q || card.dataset.title!.includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      count.textContent = q ? `${visible} article${visible > 1 ? 's' : ''} trouvé${visible > 1 ? 's' : ''}` : `${total} articles disponibles`;
+      empty.classList.toggle('hidden', visible > 0);
+    });
+  </script>
 </Layout>
