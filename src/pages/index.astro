@@ -124,11 +124,16 @@ const painPoints = [
       <!-- WAITLIST FORM HERO -->
       <div class="bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-8 max-w-lg mx-auto">
         <p class="font-semibold text-gray-900 dark:text-gray-50 mb-1">Soyez parmi les premiers</p>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
-          Laissez votre email — on vous prévient en avant-première à l'ouverture.<br />
-          <!-- Prix en doré -->
-          <span class="font-semibold" style="color: #E8604A;">À partir de 2,99€/mois · 1 mois gratuit.</span>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+          Laissez votre email — on vous prévient en avant-première à l'ouverture.
         </p>
+        <div class="flex items-center justify-center gap-2 mb-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold" style="background:#fef3ec;color:#E8604A;">
+            Tarif de lancement garanti
+          </span>
+          <span class="text-sm font-bold" style="color:#E8604A;">2,99€/mois</span>
+          <span class="text-sm text-gray-400 line-through">4,99€</span>
+        </div>
         <form id="waitlist-form-hero" class="flex flex-col sm:flex-row gap-3" action="/api/subscribe" method="POST">
           <input
             type="email"
@@ -425,7 +430,9 @@ const painPoints = [
         </div>
         <p class="text-xs" style="color: rgba(255,255,255,0.7);">
           <span class="font-semibold text-white">{displayCount}</span> inscrits ·
-          <span class="font-semibold" style="color: #fbbf24;">2,99€/mois</span> · 1 mois gratuit
+          <span class="font-semibold" style="color: #fbbf24;">tarif lancement 2,99€/mois</span>
+          <span style="color: rgba(255,255,255,0.4);" class="line-through ml-1">4,99€</span>
+          · 1 mois gratuit
         </p>
       </div>
 
