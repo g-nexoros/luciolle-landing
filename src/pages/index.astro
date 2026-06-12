@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const url = Astro.url;
+const inscrit = url.searchParams.get('inscrit') === '1';
+const erreur = url.searchParams.get('erreur');
+
 const days = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven'];
 const blockColors = ['#157f86', '#60a5fa', '#f59e0b', '#10b981', '#8b5cf6'];
 
@@ -97,7 +101,7 @@ const painPoints = [
           <!-- Prix en doré -->
           <span class="font-semibold" style="color: #E8604A;">À partir de 2,99€/mois · 1 mois gratuit.</span>
         </p>
-        <form id="waitlist-form-hero" class="flex flex-col sm:flex-row gap-3" action="https://formspree.io/f/mzdqzzle" method="POST">
+        <form id="waitlist-form-hero" class="flex flex-col sm:flex-row gap-3" action="/api/subscribe" method="POST">
           <input
             type="email"
             name="email"
@@ -112,11 +116,23 @@ const painPoints = [
             Me prévenir →
           </button>
         </form>
-        <p class="text-xs text-gray-400 dark:text-gray-500 mt-3">
-          Aucun spam · Désabonnement en un clic
-        </p>
+        {inscrit && (
+          <div class="mt-4 p-3 rounded-xl text-sm font-medium text-center" style="background: #e6f4f4; color: #157f86;">
+            🎉 Vous êtes inscrit(e) ! On vous prévient dès l'ouverture.
+          </div>
+        )}
+        {erreur && (
+          <div class="mt-4 p-3 rounded-xl text-sm font-medium text-center" style="background: #fef0ee; color: #E8604A;">
+            Une erreur est survenue. Réessayez ou contactez contact@luciolle.fr
+          </div>
+        )}
+        {!inscrit && (
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-3">
+            Aucun spam · Désabonnement en un clic
+          </p>
+        )}
       </div>
-    </div><!-- fin max-w-3xl relative -->
+    </div><!-- fin max-w-5xl relative -->
     </section>
 
     <!-- MOCKUP -->
@@ -357,7 +373,7 @@ const painPoints = [
         Luciolle arrive bientôt. Laissez votre email pour être prévenu(e) en avant-première dès l'ouverture.
       </p>
 
-      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4" action="https://formspree.io/f/mzdqzzle" method="POST">
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4" action="/api/subscribe" method="POST">
         <input
           type="email"
           name="email"
