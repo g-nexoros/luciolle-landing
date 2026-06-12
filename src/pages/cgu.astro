@@ -5,6 +5,19 @@ import Layout from '../layouts/Layout.astro';
   title="CGU – Conditions Générales d'Utilisation | Luciolle"
   description="Conditions générales d'utilisation de Luciolle, le cahier journal numérique pour enseignants."
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Conditions Générales d'Utilisation – Luciolle",
+    "url": "https://luciolle.fr/cgu",
+    "description": "Conditions générales d'utilisation du service Luciolle",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Nexoros",
+      "url": "https://luciolle.fr"
+    }
+  })} />
+
   <header class="border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2">

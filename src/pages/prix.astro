@@ -5,12 +5,44 @@ import Layout from '../layouts/Layout.astro';
   title="Tarifs Luciolle – Cahier journal numérique pour enseignants"
   description="Découvrez les tarifs de Luciolle, le cahier journal numérique pour enseignants. À partir de 2,99€/mois avec 1 mois gratuit sans CB."
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Luciolle",
+    "url": "https://luciolle.fr",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "description": "Cahier journal numérique pour enseignants de maternelle et primaire",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Abonnement mensuel",
+        "price": "2.99",
+        "priceCurrency": "EUR",
+        "billingIncrement": "P1M",
+        "description": "Accès complet à Luciolle, sans engagement"
+      },
+      {
+        "@type": "Offer",
+        "name": "Abonnement annuel",
+        "price": "29.99",
+        "priceCurrency": "EUR",
+        "billingIncrement": "P1Y",
+        "description": "Accès complet à Luciolle, 2 mois offerts"
+      }
+    ]
+  })} />
+
   <header class="border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2">
         <img src="/logo-icon.svg" alt="Luciolle" class="h-7 w-auto" />
         <span class="text-xl font-bold text-[#157f86]">Luciolle</span>
       </a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400">
+        <a href="/blog" class="hover:text-[#157f86] transition-colors font-medium">Blog</a>
+        <a href="/contact" class="hover:text-[#157f86] transition-colors font-medium">Contact</a>
+      </nav>
       <a href="/#waitlist" class="px-4 py-2 rounded-lg text-white font-medium text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors">
         Être prévenu(e)
       </a>
