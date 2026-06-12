@@ -1,57 +1,114 @@
 ---
 import Layout from '../layouts/Layout.astro';
----
-<Layout title="FAQ – Questions fréquentes | Luciolle" description="Toutes les réponses à vos questions sur Luciolle : fonctionnalités, tarifs, essai gratuit et prise en main.">
-  <header class="border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2"><img src="/logo-icon.svg" alt="Luciolle" class="h-7 w-auto" /><span class="text-xl font-bold text-[#157f86]">Luciolle</span></a>
-      <a href="/#waitlist" class="px-4 py-2 rounded-lg text-white font-medium text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors">Être prévenu(e)</a>
-    </div>
-  </header>
-  <main class="max-w-3xl mx-auto px-6 py-16">
-    <h1>Questions fréquentes</h1>
-    <div class="space-y-6 mt-8">
+import Header from '../components/Header.astro';
 
-      <div class="border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-        <h2 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Luciolle est-il gratuit ?</h2>
-        <p class="text-gray-600 dark:text-gray-400">Luciolle propose 1 mois gratuit sans carte bancaire. Ensuite, l'abonnement démarre à 2,99€/mois ou 29,99€/an.</p>
-      </div>
-      <div class="border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-        <h2 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Sur quels appareils fonctionne Luciolle ?</h2>
-        <p class="text-gray-600 dark:text-gray-400">Luciolle est une application web accessible sur tous les appareils : ordinateur, tablette et smartphone. Pas d'installation requise.</p>
-      </div>
-      <div class="border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-        <h2 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Pour quels niveaux est conçu Luciolle ?</h2>
-        <p class="text-gray-600 dark:text-gray-400">Luciolle est conçu pour tous les enseignants du primaire : maternelle (PS, MS, GS) et élémentaire (CP, CE1, CE2, CM1, CM2).</p>
-      </div>
-      <div class="border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-        <h2 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Puis-je annuler mon abonnement ?</h2>
-        <p class="text-gray-600 dark:text-gray-400">Oui, vous pouvez annuler à tout moment depuis votre espace personnel, sans pénalité.</p>
-      </div>
-      <div class="border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-        <h2 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Mes données sont-elles sécurisées ?</h2>
-        <p class="text-gray-600 dark:text-gray-400">Oui, toutes vos données sont chiffrées et sauvegardées automatiquement sur des serveurs sécurisés en Europe.</p>
-      </div>
-      <div class="border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-        <h2 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Peut-on exporter son cahier journal en PDF ?</h2>
-        <p class="text-gray-600 dark:text-gray-400">Oui, Luciolle permet d'exporter votre cahier journal en PDF à tout moment pour l'imprimer ou l'archiver.</p>
-      </div>
-      <div class="border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-        <h2 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Quand Luciolle sera-t-il disponible ?</h2>
-        <p class="text-gray-600 dark:text-gray-400">Luciolle arrive bientôt ! Inscrivez-vous à la liste d'attente pour être prévenu en avant-première et bénéficier du tarif de lancement.</p>
-      </div>
-      <div class="border border-gray-100 dark:border-gray-800 rounded-2xl p-6">
-        <h2 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Comment contacter le support ?</h2>
-        <p class="text-gray-600 dark:text-gray-400">Vous pouvez nous écrire à contact@luciolle.fr. Nous répondons sous 24h.</p>
-      </div>
+const faqs = [
+  {
+    cat: 'Général',
+    items: [
+      { q: "Qu'est-ce que Luciolle ?", a: "Luciolle est un cahier journal numérique conçu pour les enseignants de maternelle (PS, MS, GS) et de primaire (CP, CE1, CE2, CM1, CM2). Il remplace le cahier papier et les fichiers Excel par une interface simple et accessible partout." },
+      { q: "Quand Luciolle sera-t-il disponible ?", a: "Luciolle arrive bientôt ! Inscrivez-vous à la liste d'attente pour être prévenu en avant-première et bénéficier du tarif de lancement garanti." },
+      { q: "Pour quels niveaux est conçu Luciolle ?", a: "Luciolle est conçu pour tous les enseignants du premier degré : maternelle (PS, MS, GS) et élémentaire (CP, CE1, CE2, CM1, CM2). Il s'adapte aussi aux classes à double niveau." },
+    ]
+  },
+  {
+    cat: 'Tarifs & Essai',
+    items: [
+      { q: "Luciolle est-il gratuit ?", a: "Luciolle propose 1 mois d'essai gratuit, sans carte bancaire requise. Après cette période, l'abonnement démarre à 2,99€/mois ou 29,99€/an (soit 2,50€/mois, 2 mois offerts)." },
+      { q: "Puis-je annuler mon abonnement ?", a: "Oui, à tout moment depuis votre espace personnel, sans pénalité ni frais. La résiliation prend effet à la fin de la période en cours." },
+      { q: "Y a-t-il une réduction pour les écoles ?", a: "Nous préparons une offre établissement. Contactez-nous à contact@luciolle.fr pour en savoir plus." },
+    ]
+  },
+  {
+    cat: 'Fonctionnalités',
+    items: [
+      { q: "Sur quels appareils fonctionne Luciolle ?", a: "Luciolle est une application web accessible sur tous les appareils : ordinateur, tablette et smartphone. Aucune installation requise, ça fonctionne directement dans le navigateur." },
+      { q: "Puis-je exporter mon cahier journal en PDF ?", a: "Oui, Luciolle permet d'exporter votre cahier journal en PDF à tout moment pour l'imprimer ou le présenter lors d'une inspection." },
+      { q: "Peut-on créer une semaine type réutilisable ?", a: "Oui, c'est l'une des fonctionnalités phares de Luciolle. Créez votre modèle de semaine type une fois, puis appliquez-le en un clic sur n'importe quelle semaine." },
+      { q: "Peut-on dupliquer une journée entière ?", a: "Oui, vous pouvez dupliquer une journée ou une semaine complète en un clic, puis modifier uniquement ce qui change." },
+    ]
+  },
+  {
+    cat: 'Données & Sécurité',
+    items: [
+      { q: "Mes données sont-elles sécurisées ?", a: "Oui, toutes vos données sont chiffrées et sauvegardées automatiquement sur des serveurs sécurisés en Europe, conformément au RGPD." },
+      { q: "Puis-je récupérer mes données ?", a: "Oui, vous pouvez exporter vos données à tout moment depuis votre espace personnel. Vos données vous appartiennent." },
+      { q: "Luciolle respecte-t-il le RGPD ?", a: "Oui, Luciolle est conforme au RGPD. Nous ne vendons jamais vos données et vous pouvez demander leur suppression à tout moment en écrivant à contact@luciolle.fr." },
+    ]
+  },
+  {
+    cat: 'Support',
+    items: [
+      { q: "Comment contacter le support ?", a: "Écrivez-nous à contact@luciolle.fr ou via le formulaire de contact. Nous répondons sous 24h en semaine." },
+      { q: "Y a-t-il une aide pour prendre en main Luciolle ?", a: "Oui, un guide de démarrage est disponible dans l'application. Nous proposons aussi des tutoriels vidéo sur notre blog." },
+    ]
+  },
+];
+---
+<Layout
+  title="FAQ – Questions fréquentes sur Luciolle | Cahier journal numérique"
+  description="Toutes les réponses à vos questions sur Luciolle : fonctionnalités, tarifs, essai gratuit, sécurité des données et support."
+>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.flatMap(cat => cat.items.map(({ q, a }) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": { "@type": "Answer", "text": a }
+    })))
+  })} />
+
+  <Header currentPath="/faq" />
+
+  <main class="max-w-3xl mx-auto px-6 py-20">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 mb-3">
+        Questions fréquentes
+      </h1>
+      <p class="text-gray-500 dark:text-gray-400">
+        Tout ce que vous voulez savoir sur Luciolle.
+        Autre chose ? <a href="/contact" class="text-[#157f86] hover:underline">Contactez-nous</a>.
+      </p>
+    </div>
+
+    <div class="space-y-10">
+      {faqs.map(({ cat, items }) => (
+        <section>
+          <h2 class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#157f86;">{cat}</h2>
+          <div class="space-y-2">
+            {items.map(({ q, a }) => (
+              <details class="group border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden">
+                <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-gray-900 dark:text-white text-sm hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors select-none">
+                  {q}
+                  <svg class="shrink-0 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-gray-500 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-gray-800 pt-4">
+                  {a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center bg-gray-50 dark:bg-gray-900 rounded-2xl p-8">
+      <p class="font-semibold text-gray-900 dark:text-white mb-2">Vous n'avez pas trouvé votre réponse ?</p>
+      <p class="text-sm text-gray-500 mb-4">Notre équipe répond sous 24h.</p>
+      <a href="/contact" class="inline-block px-6 py-3 rounded-xl text-white font-semibold text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors">
+        Nous contacter →
+      </a>
     </div>
   </main>
-  <footer class="border-t border-gray-100 dark:border-gray-800 px-6 py-8">
+
+  <footer class="border-t border-gray-100 dark:border-gray-800 px-6 py-8 mt-8">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-      <span class="font-bold text-[#157f86]">Luciolle</span>
-      <div class="flex gap-6">
+      <a href="/" class="font-bold text-[#157f86]">Luciolle</a>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="/prix" class="hover:text-[#157f86] transition-colors">Tarifs</a>
         <a href="/blog" class="hover:text-[#157f86] transition-colors">Blog</a>
-        <a href="/faq" class="hover:text-[#157f86] transition-colors">FAQ</a>
+        <a href="/mentions-legales" class="hover:text-[#157f86] transition-colors">Mentions légales</a>
         <a href="mailto:contact@luciolle.fr" class="hover:text-[#157f86] transition-colors">Contact</a>
       </div>
       <span>© 2026 Luciolle</span>

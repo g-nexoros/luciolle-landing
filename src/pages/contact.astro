@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 
 const sent = Astro.url.searchParams.get('sent') === '1';
 const error = Astro.url.searchParams.get('erreur');
@@ -22,21 +23,7 @@ const error = Astro.url.searchParams.get('erreur');
     }
   })} />
 
-  <header class="border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <img src="/logo-icon.svg" alt="Luciolle" class="h-7 w-auto" />
-        <span class="text-xl font-bold text-[#157f86]">Luciolle</span>
-      </a>
-      <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400">
-        <a href="/prix" class="hover:text-[#157f86] transition-colors font-medium">Tarifs</a>
-        <a href="/blog" class="hover:text-[#157f86] transition-colors font-medium">Blog</a>
-      </nav>
-      <a href="/#waitlist" class="px-4 py-2 rounded-lg text-white font-medium text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors">
-        Être prévenu(e)
-      </a>
-    </div>
-  </header>
+  <Header currentPath="/contact" />
 
   <main class="max-w-2xl mx-auto px-6 py-20">
     <div class="text-center mb-12">
@@ -69,35 +56,20 @@ const error = Astro.url.searchParams.get('erreur');
 
         <div>
           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5" for="name">Votre prénom</label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            placeholder="Marie"
-            required
-            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm"
-          />
+          <input id="name" type="text" name="name" placeholder="Marie" required
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm" />
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5" for="email">Votre email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="marie@email.fr"
-            required
-            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm"
-          />
+          <input id="email" type="email" name="email" placeholder="marie@email.fr" required
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm" />
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5" for="subject">Sujet</label>
-          <select
-            id="subject"
-            name="subject"
-            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm"
-          >
+          <select id="subject" name="subject"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm">
             <option value="question">Question sur Luciolle</option>
             <option value="suggestion">Suggestion / fonctionnalité</option>
             <option value="bug">Signaler un problème</option>
@@ -108,14 +80,8 @@ const error = Astro.url.searchParams.get('erreur');
 
         <div>
           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5" for="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            placeholder="Votre message..."
-            required
-            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm resize-none"
-          ></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="Votre message..." required
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm resize-none"></textarea>
         </div>
 
         {error && (
@@ -124,10 +90,7 @@ const error = Astro.url.searchParams.get('erreur');
           </div>
         )}
 
-        <button
-          type="submit"
-          class="w-full py-3 rounded-xl text-white font-semibold text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors"
-        >
+        <button type="submit" class="w-full py-3 rounded-xl text-white font-semibold text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors">
           Envoyer le message →
         </button>
 
