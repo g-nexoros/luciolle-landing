@@ -18,14 +18,23 @@ export const POST: APIRoute = async ({ request }) => {
     return Response.redirect(new URL('/?erreur=config', request.url), 302);
   }
 
+  // Brevo supporte les deux formats : xkeysib- (ancien) et sk_live_ (nouveau)
+  const isNewFormat = apiKey.startsWith('sk_live_') || apiKey.startsWith('sk_test_');
+  const headers: Record<string, string> = {
+    'accept': 'application/json',
+    'content-type': 'application/json',
+  };
+
+  if (isNewFormat) {
+    headers['Authorization'] = `Bearer ${apiKey}`;
+  } else {
+    headers['api-key'] = apiKey;
+  }
+
   try {
     const res = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'content-type': 'application/json',
-        'api-key': apiKey,
-      },
+      headers,
       body: JSON.stringify({
         email,
         listIds: [listId],
