@@ -23,7 +23,7 @@ try {
   }
 } catch (_) {}
 
-const displayCount = subscriberCount > 0 ? subscriberCount : 0;
+const displayCount = subscriberCount + 10;
 // Barre de progression : 100% = 200 inscrits (objectif lancement)
 const progressPct = Math.min(Math.round((displayCount / 200) * 100), 100);
 
