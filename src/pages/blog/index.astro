@@ -86,6 +86,9 @@ const categories = ['Tous', ...Object.keys(categoryColors)];
     </div>
 
     <p id="empty" class="hidden text-center text-gray-400 py-16">Aucun article trouvé pour cette recherche.</p>
+
+    <!-- Pagination -->
+    <div id="pagination" class="flex items-center justify-center gap-2 mt-10"></div>
   </main>
 
   <footer class="border-t border-gray-100 dark:border-gray-800 px-6 py-8 mt-16">
@@ -100,49 +103,88 @@ const categories = ['Tous', ...Object.keys(categoryColors)];
   </footer>
 
   <script define:vars={{ categoryColors }}>
+    const PER_PAGE = 12;
     const input = document.getElementById('search');
-    const cards = document.querySelectorAll('.article-card');
+    const allCards = Array.from(document.querySelectorAll('.article-card'));
     const count = document.getElementById('count');
     const empty = document.getElementById('empty');
+    const pagination = document.getElementById('pagination');
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const total = cards.length;
     let activeCategory = 'Tous';
+    let currentPage = 1;
 
-    function updateDisplay() {
+    function getVisible() {
       const q = input.value.toLowerCase().trim();
-      let visible = 0;
-      cards.forEach((card) => {
+      return allCards.filter((card) => {
         const matchQ = !q || card.dataset.title.includes(q);
         const matchCat = activeCategory === 'Tous' || card.dataset.cat === activeCategory;
-        const show = matchQ && matchCat;
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
+        return matchQ && matchCat;
       });
-      const label = activeCategory === 'Tous' && !q ? `${total} articles disponibles` : `${visible} article${visible > 1 ? 's' : ''} trouvé${visible > 1 ? 's' : ''}`;
-      count.textContent = label;
-      empty.classList.toggle('hidden', visible > 0);
     }
 
-    input.addEventListener('input', updateDisplay);
+    function renderPage() {
+      const visible = getVisible();
+      const totalPages = Math.max(1, Math.ceil(visible.length / PER_PAGE));
+      if (currentPage > totalPages) currentPage = 1;
+      const start = (currentPage - 1) * PER_PAGE;
+      const end = start + PER_PAGE;
+
+      allCards.forEach((card) => card.style.display = 'none');
+      visible.forEach((card, i) => {
+        card.style.display = (i >= start && i < end) ? '' : 'none';
+      });
+
+      const q = input.value.toLowerCase().trim();
+      const label = activeCategory === 'Tous' && !q
+        ? `${allCards.length} articles disponibles`
+        : `${visible.length} article${visible.length > 1 ? 's' : ''} trouvé${visible.length > 1 ? 's' : ''}`;
+      count.textContent = label;
+      empty.classList.toggle('hidden', visible.length > 0);
+
+      // Pagination buttons
+      pagination.innerHTML = '';
+      if (totalPages <= 1) return;
+
+      const btn = (label, page, disabled, active) => {
+        const el = document.createElement('button');
+        el.textContent = label;
+        el.disabled = disabled;
+        el.className = 'px-3 py-1.5 rounded-lg text-sm font-medium border transition-all';
+        el.style.cssText = active
+          ? 'background:#157f86;color:white;border-color:#157f86;'
+          : disabled
+            ? 'background:#f9fafb;color:#d1d5db;border-color:#e5e7eb;cursor:not-allowed;'
+            : 'background:white;color:#374151;border-color:#e5e7eb;cursor:pointer;';
+        if (!disabled) el.addEventListener('click', () => { currentPage = page; renderPage(); window.scrollTo({top: 0, behavior: 'smooth'}); });
+        return el;
+      };
+
+      pagination.appendChild(btn('←', currentPage - 1, currentPage === 1, false));
+      for (let p = 1; p <= totalPages; p++) {
+        pagination.appendChild(btn(String(p), p, false, p === currentPage));
+      }
+      pagination.appendChild(btn('→', currentPage + 1, currentPage === totalPages, false));
+    }
+
+    input.addEventListener('input', () => { currentPage = 1; renderPage(); });
 
     filterBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         activeCategory = btn.dataset.cat;
+        currentPage = 1;
         filterBtns.forEach((b) => {
           const cat = b.dataset.cat;
           if (b === btn) {
             const color = cat === 'Tous' ? '#157f86' : (categoryColors[cat] ?? '#157f86');
-            b.style.background = color;
-            b.style.color = 'white';
-            b.style.borderColor = color;
+            b.style.background = color; b.style.color = 'white'; b.style.borderColor = color;
           } else {
-            b.style.background = 'white';
-            b.style.color = '#6b7280';
-            b.style.borderColor = '#e5e7eb';
+            b.style.background = 'white'; b.style.color = '#6b7280'; b.style.borderColor = '#e5e7eb';
           }
         });
-        updateDisplay();
+        renderPage();
       });
     });
+
+    renderPage();
   </script>
 </Layout>
