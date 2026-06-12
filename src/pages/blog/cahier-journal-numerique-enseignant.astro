@@ -1,4 +1,5 @@
 ---
+import Footer from '../../components/Footer.astro';
 import Layout from '../../layouts/Layout.astro';
 ---
 
@@ -153,15 +154,7 @@ import Layout from '../../layouts/Layout.astro';
   </main>
 
   <!-- FOOTER -->
-  <footer class="border-t border-gray-100 px-6 py-8 mt-8">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-      <a href="/" class="font-bold text-[#157f86]">Luciolle</a>
-      <div class="flex gap-6">
-        <a href="mailto:contact@luciolle.fr" class="hover:text-[#157f86] transition-colors">Contact</a>
-        <a href="/blog" class="hover:text-[#157f86] transition-colors">Blog</a>
-      </div>
-      <span>© 2026 Luciolle</span>
-    </div>
-  </footer>
+
+  <Footer />
 <script type="application/ld+json" set:html={JSON.stringify([{"@context":"https://schema.org","@type":"Article","headline":"Cahier journal numérique enseignant : le guide complet 2026","description":"cahier journal numérique enseignant","author":{"@type":"Organization","name":"Luciolle"},"publisher":{"@type":"Organization","name":"Luciolle","logo":{"@type":"ImageObject","url":"https://luciolle.fr/logo-icon.svg"}},"datePublished":"2026-05-20","dateModified":"2026-05-20","mainEntityOfPage":{"@type":"WebPage","@id":"https://luciolle.fr/blog/cahier-journal-numerique-enseignant"},"url":"https://luciolle.fr/blog/cahier-journal-numerique-enseignant"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://luciolle.fr"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://luciolle.fr/blog"},{"@type":"ListItem","position":3,"name":"Cahier journal numérique enseignant","item":"https://luciolle.fr/blog/cahier-journal-numerique-enseignant"}]}])} />
 </Layout>

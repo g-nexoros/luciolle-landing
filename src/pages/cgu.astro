@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 ---
@@ -97,15 +98,5 @@ import Header from '../components/Header.astro';
     </div>
   </main>
 
-  <footer class="border-t border-gray-100 dark:border-gray-800 px-6 py-8 mt-16">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-      <a href="/" class="font-bold text-[#157f86]">Luciolle</a>
-      <div class="flex gap-6">
-        <a href="/mentions-legales" class="hover:text-[#157f86] transition-colors">Mentions légales</a>
-        <a href="/politique-confidentialite" class="hover:text-[#157f86] transition-colors">Confidentialité</a>
-        <a href="mailto:contact@luciolle.fr" class="hover:text-[#157f86] transition-colors">Contact</a>
-      </div>
-      <span>© 2026 Luciolle</span>
-    </div>
-  </footer>
+  <Footer />
 </Layout>

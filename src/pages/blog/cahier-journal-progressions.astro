@@ -1,4 +1,5 @@
 ---
+import Footer from '../../components/Footer.astro';
 import Layout from '../../layouts/Layout.astro';
 ---
 
@@ -38,16 +39,7 @@ import Layout from '../../layouts/Layout.astro';
       </form>
     </section>
   </main>
-  <footer class="border-t border-gray-100 dark:border-gray-800 px-6 py-8">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-      <span class="font-bold text-[#157f86]">Luciolle</span>
-      <div class="flex gap-6">
-        <a href="/blog" class="hover:text-[#157f86] transition-colors">Blog</a>
-        <a href="/faq" class="hover:text-[#157f86] transition-colors">FAQ</a>
-        <a href="mailto:contact@luciolle.fr" class="hover:text-[#157f86] transition-colors">Contact</a>
-      </div>
-      <span>© 2026 Luciolle</span>
-    </div>
-  </footer>
+
+  <Footer />
 <script type="application/ld+json" set:html={JSON.stringify([{"@context":"https://schema.org","@type":"Article","headline":"Lier cahier journal et progressions annuelles","description":"cahier journal progressions annuelles","author":{"@type":"Organization","name":"Luciolle"},"publisher":{"@type":"Organization","name":"Luciolle","logo":{"@type":"ImageObject","url":"https://luciolle.fr/logo-icon.svg"}},"datePublished":"2026-06-03","dateModified":"2026-06-03","mainEntityOfPage":{"@type":"WebPage","@id":"https://luciolle.fr/blog/cahier-journal-progressions"},"url":"https://luciolle.fr/blog/cahier-journal-progressions"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://luciolle.fr"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://luciolle.fr/blog"},{"@type":"ListItem","position":3,"name":"Cahier journal progressions annuelles","item":"https://luciolle.fr/blog/cahier-journal-progressions"}]}])} />
 </Layout>
