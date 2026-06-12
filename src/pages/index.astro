@@ -5,6 +5,28 @@ const url = Astro.url;
 const inscrit = url.searchParams.get('inscrit') === '1';
 const erreur = url.searchParams.get('erreur');
 
+// Fetch du vrai compteur Brevo
+let subscriberCount = 0;
+try {
+  const apiKey = import.meta.env.BREVO_API_KEY;
+  const listId = import.meta.env.BREVO_LIST_ID || '3';
+  if (apiKey) {
+    const isNewFormat = apiKey.startsWith('sk_live_') || apiKey.startsWith('sk_test_');
+    const headers: Record<string, string> = { 'accept': 'application/json' };
+    if (isNewFormat) headers['Authorization'] = `Bearer ${apiKey}`;
+    else headers['api-key'] = apiKey;
+    const res = await fetch(`https://api.brevo.com/v3/contacts/lists/${listId}`, { headers });
+    if (res.ok) {
+      const data = await res.json();
+      subscriberCount = data.totalSubscribers ?? data.uniqueSubscribers ?? 0;
+    }
+  }
+} catch (_) {}
+
+const displayCount = subscriberCount > 0 ? subscriberCount : 0;
+// Barre de progression : 100% = 200 inscrits (objectif lancement)
+const progressPct = Math.min(Math.round((displayCount / 200) * 100), 100);
+
 const days = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven'];
 const blockColors = ['#157f86', '#60a5fa', '#f59e0b', '#10b981', '#8b5cf6'];
 
@@ -393,10 +415,10 @@ const painPoints = [
 
       <div class="flex flex-col items-center gap-2 mt-6">
         <div class="w-48 h-2 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.2);">
-          <div class="h-full rounded-full" style="width: 34%; background: #E8604A;"></div>
+          <div class="h-full rounded-full" style={`width: ${progressPct}%; background: #E8604A;`}></div>
         </div>
         <p class="text-xs" style="color: rgba(255,255,255,0.7);">
-          <span class="font-semibold text-white">34</span> inscrits ·
+          <span class="font-semibold text-white">{displayCount}</span> inscrits ·
           <span class="font-semibold" style="color: #fbbf24;">2,99€/mois</span> · 1 mois gratuit
         </p>
       </div>
