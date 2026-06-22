@@ -83,8 +83,8 @@ const painPoints = [
         <a href="/blog" class="hover:text-[#157f86] transition-colors font-medium">Blog</a>
         <a href="/contact" class="hover:text-[#157f86] transition-colors font-medium">Contact</a>
       </nav>
-      <a href="#waitlist" class="px-4 py-2 rounded-lg text-white font-medium text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors">
-        Être prévenu(e)
+      <a href="https://luciolle.app" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg text-white font-medium text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors">
+        Accéder à l'application →
       </a>
     </div>
   </header>
@@ -108,9 +108,9 @@ const painPoints = [
       <div class="max-w-5xl mx-auto relative">
 
       <!-- Badge doré "Bientôt disponible" -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6 badge-secondary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Bientôt disponible
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6 badge-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Disponible maintenant
       </div>
 
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 tracking-tight text-gray-900 dark:text-gray-50">
@@ -121,49 +121,27 @@ const painPoints = [
         Luciolle est le cahier journal numérique pour enseignants de maternelle (PS, MS, GS) et de primaire (CP, CE1, CE2, CM1, CM2). Planifiez, rédigez et visualisez vos séances en quelques minutes.
       </p>
 
-      <!-- WAITLIST FORM HERO -->
+      <!-- CTA HERO -->
       <div class="bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-8 max-w-lg mx-auto">
-        <p class="font-semibold text-gray-900 dark:text-gray-50 mb-1">Soyez parmi les premiers</p>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-          Laissez votre email — on vous prévient en avant-première à l'ouverture.
+        <p class="font-semibold text-gray-900 dark:text-gray-50 mb-1">Commencez dès aujourd'hui</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          1 mois gratuit, sans carte bancaire. Résiliable à tout moment.
         </p>
         <div class="flex items-center justify-center gap-2 mb-6">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold" style="background:#fef3ec;color:#E8604A;">
-            Tarif de lancement garanti
-          </span>
-          <span class="text-sm font-bold" style="color:#E8604A;">2,99€/mois</span>
-          <span class="text-sm text-gray-400 line-through">4,99€</span>
+          <span class="text-2xl font-extrabold text-gray-900 dark:text-white">4,99€</span>
+          <span class="text-sm text-gray-400">/mois · sans engagement</span>
         </div>
-        <form id="waitlist-form-hero" class="flex flex-col sm:flex-row gap-3" action="/api/subscribe" method="POST">
-          <input
-            type="email"
-            name="email"
-            placeholder="votre@email.fr"
-            required
-            class="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157f86]/40 text-sm"
-          />
-          <button
-            type="submit"
-            class="px-6 py-3 rounded-xl text-white font-semibold text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors whitespace-nowrap"
-          >
-            Me prévenir →
-          </button>
-        </form>
-        {inscrit && (
-          <div class="mt-4 p-3 rounded-xl text-sm font-medium text-center" style="background: #e6f4f4; color: #157f86;">
-            🎉 Vous êtes inscrit(e) ! On vous prévient dès l'ouverture.
-          </div>
-        )}
-        {erreur && (
-          <div class="mt-4 p-3 rounded-xl text-sm font-medium text-center" style="background: #fef0ee; color: #E8604A;">
-            Une erreur est survenue. Réessayez ou contactez contact@luciolle.fr
-          </div>
-        )}
-        {!inscrit && (
-          <p class="text-xs text-gray-400 dark:text-gray-500 mt-3">
-            Aucun spam · Désabonnement en un clic
-          </p>
-        )}
+        <a
+          href="https://luciolle.app"
+          target="_blank"
+          rel="noopener"
+          class="block w-full text-center px-6 py-3 rounded-xl text-white font-semibold text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors"
+        >
+          Essayer gratuitement →
+        </a>
+        <p class="text-xs text-gray-400 dark:text-gray-500 mt-3 text-center">
+          Aucune carte bancaire · 1 mois offert
+        </p>
       </div>
     </div><!-- fin max-w-5xl relative -->
     </section>
@@ -403,41 +381,25 @@ const painPoints = [
         Récupérez vos soirées
       </h2>
       <p class="mb-8 max-w-lg mx-auto" style="color: rgba(255,255,255,0.8);">
-        Luciolle arrive bientôt. Laissez votre email pour être prévenu(e) en avant-première dès l'ouverture.
+        Luciolle est disponible dès maintenant. 1 mois gratuit, sans carte bancaire.
       </p>
 
-      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4" action="/api/subscribe" method="POST">
-        <input
-          type="email"
-          name="email"
-          placeholder="votre@email.fr"
-          required
-          class="flex-1 px-4 py-3 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/40 text-sm"
-          style="background: rgba(255,255,255,0.95); border: 1px solid rgba(255,255,255,0.3);"
-        />
-        <button
-          type="submit"
-          class="px-6 py-3 rounded-xl font-semibold text-sm transition-colors whitespace-nowrap"
-          style="background: #E8604A; color: white;"
-        >
-          Me prévenir →
-        </button>
-      </form>
+      <a
+        href="https://luciolle.app"
+        target="_blank"
+        rel="noopener"
+        class="inline-block px-8 py-4 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90"
+        style="background: #E8604A; color: white;"
+      >
+        Essayer gratuitement →
+      </a>
 
-      <div class="flex flex-col items-center gap-2 mt-6">
-        <div class="w-48 h-2 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.2);">
-          <div class="h-full rounded-full" style={`width: ${progressPct}%; background: #E8604A;`}></div>
-        </div>
-        <p class="text-xs" style="color: rgba(255,255,255,0.7);">
-          <span class="font-semibold text-white">{displayCount}</span> inscrits ·
-          <span class="font-semibold" style="color: #fbbf24;">tarif lancement 2,99€/mois</span>
-          <span style="color: rgba(255,255,255,0.4);" class="line-through ml-1">4,99€</span>
-          · 1 mois gratuit
-        </p>
-      </div>
+      <p class="text-sm mt-6" style="color: rgba(255,255,255,0.7);">
+        <span class="font-semibold text-white">4,99€/mois</span> · sans engagement · 1 mois offert
+      </p>
 
-      <p class="text-xs mt-4" style="color: rgba(255,255,255,0.5);">
-        Aucun spam · Désabonnement en un clic
+      <p class="text-xs mt-3" style="color: rgba(255,255,255,0.5);">
+        Aucune carte bancaire requise
       </p>
       </div><!-- fin max-w-2xl -->
     </section>

@@ -5,7 +5,7 @@ import Header from '../components/Header.astro';
 ---
 <Layout
   title="Tarifs Luciolle – Cahier journal numérique pour enseignants"
-  description="Tarif de lancement garanti à 2,99€/mois pour les inscrits sur liste d'attente. Cahier journal numérique pour enseignants avec 1 mois gratuit sans CB."
+  description="Luciolle à 4,99€/mois sans engagement. 1 mois gratuit sans carte bancaire. Cahier journal numérique pour enseignants de maternelle et primaire."
 >
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -19,7 +19,7 @@ import Header from '../components/Header.astro';
       {
         "@type": "Offer",
         "name": "Abonnement mensuel",
-        "price": "2.99",
+        "price": "4.99",
         "priceCurrency": "EUR",
         "billingIncrement": "P1M",
         "description": "Accès complet à Luciolle, sans engagement"
@@ -27,7 +27,7 @@ import Header from '../components/Header.astro';
       {
         "@type": "Offer",
         "name": "Abonnement annuel",
-        "price": "29.99",
+        "price": "39.99",
         "priceCurrency": "EUR",
         "billingIncrement": "P1Y",
         "description": "Accès complet à Luciolle, 2 mois offerts"
@@ -41,15 +41,15 @@ import Header from '../components/Header.astro';
 
     <!-- En-tête -->
     <div class="text-center mb-16">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6" style="background: #fef3ec; color: #E8604A;">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6" style="background: #e6f4f4; color: #157f86;">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        Tarif de lancement garanti pour les inscrits
+        Tarifs simples
       </div>
       <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 mb-4">
         Un prix juste pour les <span class="text-[#157f86]">enseignants</span>
       </h1>
       <p class="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-        Inscrivez-vous maintenant et bloquez le tarif de lancement à 2,99€/mois — le prix passera à 4,99€ à l'ouverture officielle.
+        1 mois gratuit sans carte bancaire. Résiliable à tout moment, sans engagement.
       </p>
     </div>
 
@@ -61,12 +61,8 @@ import Header from '../components/Header.astro';
         <div class="mb-6">
           <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Mensuel</p>
           <div class="flex items-end gap-2">
-            <span class="text-5xl font-extrabold text-gray-900 dark:text-white">2,99</span>
+            <span class="text-5xl font-extrabold text-gray-900 dark:text-white">4,99</span>
             <span class="text-xl font-semibold text-gray-400 mb-1">€/mois</span>
-          </div>
-          <div class="flex items-center gap-2 mt-1">
-            <span class="text-xs font-semibold px-2 py-0.5 rounded-full" style="background:#fef3ec;color:#E8604A;">Tarif de lancement</span>
-            <span class="text-sm text-gray-400 line-through">4,99€</span>
           </div>
           <p class="text-sm text-gray-400 mt-1">Sans engagement · résiliable à tout moment</p>
         </div>
@@ -86,8 +82,8 @@ import Header from '../components/Header.astro';
             </li>
           ))}
         </ul>
-        <a href="/#waitlist" class="block text-center py-3 rounded-xl border-2 font-semibold text-sm transition-colors" style="border-color: #157f86; color: #157f86;" onmouseover="this.style.background='#157f86';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='#157f86'">
-          Rejoindre la liste d'attente
+        <a href="https://luciolle.app" target="_blank" rel="noopener" class="block text-center py-3 rounded-xl border-2 font-semibold text-sm transition-colors" style="border-color: #157f86; color: #157f86;" onmouseover="this.style.background='#157f86';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='#157f86'">
+          Essayer gratuitement →
         </a>
       </div>
 
@@ -99,14 +95,10 @@ import Header from '../components/Header.astro';
         <div class="mb-6">
           <p class="text-sm font-medium opacity-70 mb-2">Annuel</p>
           <div class="flex items-end gap-1">
-            <span class="text-5xl font-extrabold">29,99</span>
+            <span class="text-5xl font-extrabold">39,99</span>
             <span class="text-xl font-semibold opacity-70 mb-1">€/an</span>
           </div>
-          <div class="flex items-center gap-2 mt-1">
-            <span class="text-xs font-semibold px-2 py-0.5 rounded-full" style="background:rgba(255,255,255,0.2);color:white;">Tarif de lancement</span>
-            <span class="text-sm opacity-50 line-through">39,99€</span>
-          </div>
-          <p class="text-sm opacity-60 mt-1">soit 2,50€/mois · <span class="font-semibold opacity-90">2 mois offerts</span></p>
+          <p class="text-sm opacity-60 mt-1">soit 3,33€/mois · <span class="font-semibold opacity-90">2 mois offerts</span></p>
         </div>
         <ul class="space-y-3 flex-1 mb-8">
           {[
@@ -121,8 +113,8 @@ import Header from '../components/Header.astro';
             </li>
           ))}
         </ul>
-        <a href="/#waitlist" class="block text-center py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90" style="background: white; color: #157f86;">
-          Rejoindre la liste d'attente
+        <a href="https://luciolle.app" target="_blank" rel="noopener" class="block text-center py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90" style="background: white; color: #157f86;">
+          Essayer gratuitement →
         </a>
       </div>
     </div>
@@ -145,7 +137,7 @@ import Header from '../components/Header.astro';
           { q: 'Puis-je annuler à tout moment ?', a: 'Oui, sans engagement ni frais. Vous pouvez résilier depuis votre espace personnel en quelques clics.' },
           { q: 'Mes données sont-elles sauvegardées ?', a: 'Oui, toutes vos données sont sauvegardées automatiquement et accessibles depuis n\'importe quel appareil.' },
           { q: 'Y a-t-il une réduction pour les écoles ou équipes ?', a: 'Nous préparons une offre établissement. Contactez-nous à contact@luciolle.fr pour en savoir plus.' },
-          { q: 'Le prix changera-t-il après le lancement ?', a: 'Oui. Le tarif passera à 4,99€/mois et 39,99€/an à l\'ouverture officielle. Les inscrits sur la liste d\'attente gardent le tarif de lancement à 2,99€/mois garanti à vie.' },
+          { q: 'Le prix inclut-il les mises à jour ?', a: 'Oui, toutes les mises à jour et nouvelles fonctionnalités sont incluses dans votre abonnement, sans frais supplémentaires.' },
         ].map(({ q, a }) => (
           <div class="border border-gray-100 dark:border-gray-800 rounded-2xl p-5">
             <p class="font-semibold text-gray-900 dark:text-white text-sm mb-2">{q}</p>
