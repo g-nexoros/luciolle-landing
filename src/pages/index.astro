@@ -1,42 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const url = Astro.url;
-const inscrit = url.searchParams.get('inscrit') === '1';
-const erreur = url.searchParams.get('erreur');
-
-// Fetch du vrai compteur Brevo
-let subscriberCount = 0;
-try {
-  const apiKey = import.meta.env.BREVO_API_KEY;
-  const listId = import.meta.env.BREVO_LIST_ID || '3';
-  if (apiKey) {
-    const isNewFormat = apiKey.startsWith('sk_live_') || apiKey.startsWith('sk_test_');
-    const headers: Record<string, string> = { 'accept': 'application/json' };
-    if (isNewFormat) headers['Authorization'] = `Bearer ${apiKey}`;
-    else headers['api-key'] = apiKey;
-    const res = await fetch(`https://api.brevo.com/v3/contacts/lists/${listId}`, { headers });
-    if (res.ok) {
-      const data = await res.json();
-      subscriberCount = data.totalSubscribers ?? data.uniqueSubscribers ?? 0;
-    }
-  }
-} catch (_) {}
-
-const displayCount = subscriberCount + 10;
-// Barre de progression : 100% = 200 inscrits (objectif lancement)
-const progressPct = Math.min(Math.round((displayCount / 200) * 100), 100);
-
-const days = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven'];
-const blockColors = ['#157f86', '#60a5fa', '#f59e0b', '#10b981', '#8b5cf6'];
-
-const mockupSlots = [
-  [{ label: 'Français', time: '8h30' }, { label: 'Maths', time: '10h00' }, { label: 'EPS', time: '14h00' }],
-  [{ label: 'Maths', time: '8h30' }, { label: 'Sciences', time: '10h00' }, { label: 'Arts', time: '14h00' }],
-  [{ label: 'Lecture', time: '9h00' }, { label: 'Maths', time: '10h30' }, { label: 'Histoire', time: '14h00' }],
-  [{ label: 'Français', time: '8h30' }, { label: 'EPS', time: '10h00' }, { label: 'Sciences', time: '14h00' }],
-  [{ label: 'Maths', time: '8h30' }, { label: 'Français', time: '10h00' }, { label: 'Arts', time: '14h00' }],
-];
+import Header from '../components/Header.astro';
 
 const features = [
   {
@@ -83,21 +47,7 @@ const painPoints = [
   title="Luciolle – Cahier journal numérique pour enseignants"
   description="Luciolle, le cahier journal numérique pour enseignants de maternelle et primaire. Planifiez vos séances en quelques minutes. 1 mois gratuit, sans carte bancaire."
 >
-  <!-- HEADER -->
-  <header class="border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2"><img src="/logo-icon.svg" alt="Luciolle" class="h-7 w-auto" /><span class="text-xl font-bold text-[#157f86]">Luciolle</span></a>
-      <nav class="hidden sm:flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400">
-        <a href="/prix" class="hover:text-[#157f86] transition-colors font-medium">Tarifs</a>
-        <a href="/fonctionnalites" class="hover:text-[#157f86] transition-colors font-medium">Fonctionnalités</a>
-        <a href="/blog" class="hover:text-[#157f86] transition-colors font-medium">Blog</a>
-        <a href="/contact" class="hover:text-[#157f86] transition-colors font-medium">Contact</a>
-      </nav>
-      <a href="https://luciolle.app" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg text-white font-medium text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors">
-        Accéder à l'application →
-      </a>
-    </div>
-  </header>
+  <Header />
 
   <main>
 
@@ -117,7 +67,7 @@ const painPoints = [
       <div class="absolute bottom-40 right-8 w-3 h-3 rounded-full opacity-40 pointer-events-none" style="background: #157f86;"></div>
       <div class="max-w-5xl mx-auto relative">
 
-      <!-- Badge doré "Bientôt disponible" -->
+      <!-- Badges hero -->
       <div class="flex items-center justify-center gap-3 mb-6 flex-wrap">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium badge-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -360,8 +310,8 @@ const painPoints = [
       </div>
     </section>
 
-    <!-- WAITLIST FINALE -->
-    <section id="waitlist" class="relative overflow-hidden px-6 pb-24 pt-28 text-center reveal" style="background: linear-gradient(135deg, #157f86 0%, #0d5e63 100%); clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);">
+    <!-- CTA FINALE -->
+    <section id="cta" class="relative overflow-hidden px-6 pb-24 pt-28 text-center reveal" style="background: linear-gradient(135deg, #157f86 0%, #0d5e63 100%); clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);">
       <div class="absolute -top-16 -right-16 w-72 h-72 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: #E8604A;"></div>
       <div class="absolute -bottom-16 -left-16 w-72 h-72 rounded-full opacity-10 blur-3xl pointer-events-none" style="background: white;"></div>
       <div class="max-w-4xl mx-auto relative">
