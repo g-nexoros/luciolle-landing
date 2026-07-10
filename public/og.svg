@@ -27,9 +27,5 @@
   <text x="80" y="450" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="72" fill="#111827">des enseignants</text>
 
   <!-- Sous-titre -->
-  <text x="80" y="520" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="28" fill="#6b7280">Maternelle &amp; Primaire · À partir de 2,99€/mois · 1 mois gratuit</text>
-
-  <!-- Badge bientôt disponible -->
-  <rect x="80" y="558" width="240" height="40" rx="20" fill="#FEF0EE"/>
-  <text x="200" y="584" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="18" fill="#E8604A" text-anchor="middle">Bientôt disponible</text>
+  <text x="80" y="520" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="28" fill="#6b7280">Maternelle &amp; Primaire</text>
 </svg>
