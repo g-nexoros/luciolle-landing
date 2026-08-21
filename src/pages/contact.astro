@@ -48,13 +48,10 @@ const error = Astro.url.searchParams.get('erreur');
       </div>
     ) : (
       <form
-        action="https://formspree.io/f/contact@luciolle.fr"
+        action="/api/contact"
         method="POST"
         class="space-y-5 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-8"
       >
-        <input type="hidden" name="_next" value="https://luciolle.fr/contact?sent=1" />
-        <input type="text" name="_gotcha" class="hidden" />
-
         <div>
           <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5" for="name">Votre prénom</label>
           <input id="name" type="text" name="name" placeholder="Marie" required
