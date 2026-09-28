@@ -28,6 +28,8 @@ const faqs = [
       { q: "Puis-je exporter mon cahier journal en PDF ?", a: "Oui, Luciolle permet d'exporter votre cahier journal en PDF à tout moment pour l'imprimer ou le présenter lors d'une inspection." },
       { q: "Peut-on créer une semaine type réutilisable ?", a: "Oui, c'est l'une des fonctionnalités phares de Luciolle. Créez votre modèle de semaine type une fois, puis appliquez-le en un clic sur n'importe quelle semaine." },
       { q: "Peut-on dupliquer une journée entière ?", a: "Oui, vous pouvez dupliquer une journée ou une semaine complète en un clic, puis modifier uniquement ce qui change." },
+      { q: "Mon IEN acceptera-t-il un cahier journal numérique ?", a: "Oui. Luciolle vous permet d'exporter votre cahier journal en PDF soigné, imprimable et présentable lors d'une inspection. Le format est accepté par l'Éducation nationale. Plusieurs enseignants ont présenté leur cahier Luciolle lors d'inspections sans aucune difficulté." },
+      { q: "J'ai déjà Excel ou Word, pourquoi changer ?", a: "Excel et Word demandent 30 à 45 minutes par semaine pour maintenir un cahier journal présentable — sans modèles réutilisables, sans statistiques, sans export PDF automatique. Luciolle est conçu spécifiquement pour les enseignants : tout est prêt, rien à formater. La plupart récupèrent leurs soirées dès la première semaine." },
     ]
   },
   {
@@ -95,12 +97,17 @@ const faqs = [
       ))}
     </div>
 
-    <div class="mt-16 text-center bg-gray-50 dark:bg-gray-900 rounded-2xl p-8">
-      <p class="font-semibold text-gray-900 dark:text-white mb-2">Vous n'avez pas trouvé votre réponse ?</p>
-      <p class="text-sm text-gray-500 mb-4">Notre équipe répond sous 24h.</p>
-      <a href="/contact" class="inline-block px-6 py-3 rounded-xl text-white font-semibold text-sm bg-[#157f86] hover:bg-[#0f6068] transition-colors">
-        Nous contacter →
-      </a>
+    <div class="mt-16 text-center rounded-2xl p-10" style="background: linear-gradient(135deg, #157f86 0%, #0d5e63 100%);">
+      <p class="font-extrabold text-white text-xl mb-2">Convaincu ? Essayez gratuitement.</p>
+      <p class="text-sm mb-6" style="color: rgba(255,255,255,0.75);">1 mois offert · Sans carte bancaire · Résiliable à tout moment.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://luciolle.app" target="_blank" rel="noopener" class="inline-block px-7 py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90" style="background: #E8604A; color: white;">
+          Essayer gratuitement →
+        </a>
+        <a href="/contact" class="inline-block px-7 py-3 rounded-xl font-semibold text-sm transition-colors" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3);">
+          Poser une question
+        </a>
+      </div>
     </div>
   </main>
 
