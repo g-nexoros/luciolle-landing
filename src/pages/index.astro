@@ -74,26 +74,6 @@ const painPoints = [
   { before: 'Gérer plusieurs niveaux dans le même cahier', after: 'Jusqu\'à 4 niveaux côte à côte, chacun à sa place' },
 ];
 
-const testimonials = [
-  {
-    quote: "J'hésitais à quitter mon cahier papier après 8 ans. Maintenant je ne pourrais plus revenir en arrière. Mon cahier journal est bouclé en 5 minutes le dimanche soir.",
-    name: "Marie L.",
-    role: "Enseignante CM1/CM2 · Paris",
-    initials: "ML",
-  },
-  {
-    quote: "La vue multi-niveaux m'a changé la vie. Je gère mes PS et MS côte à côte sans jamais me perdre. C'est la seule appli qui le fait vraiment bien.",
-    name: "Sandrine T.",
-    role: "Enseignante PS/MS · Lyon",
-    initials: "ST",
-  },
-  {
-    quote: "L'export PDF m'a sauvé lors de mon inspection. J'ai présenté mon cahier journal en 30 secondes sur mon téléphone. L'IEN était impressionné.",
-    name: "Julien R.",
-    role: "Enseignant remplaçant · Bordeaux",
-    initials: "JR",
-  },
-];
 ---
 
 <Layout
@@ -329,37 +309,6 @@ const testimonials = [
             </div>
           ))}
         </div>
-      </div>
-    </section>
-
-    <!-- TÉMOIGNAGES -->
-    <section class="relative overflow-hidden px-6 py-20 max-w-5xl mx-auto reveal">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-4 badge-primary">
-          Ce qu'en disent les enseignants
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50">
-          Ils ont franchi le pas
-        </h2>
-      </div>
-      <div class="grid sm:grid-cols-3 gap-6">
-        {testimonials.map((t, i) => (
-          <div class="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 flex flex-col gap-4 stagger-child" style={`--stagger: ${i}`}>
-            <div class="flex gap-1">
-              {[1,2,3,4,5].map(() => (
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              ))}
-            </div>
-            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed flex-1">"{t.quote}"</p>
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style="background: #157f86;">{t.initials}</div>
-              <div>
-                <p class="font-semibold text-sm text-gray-900 dark:text-white">{t.name}</p>
-                <p class="text-xs text-gray-400">{t.role}</p>
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
     </section>
 
